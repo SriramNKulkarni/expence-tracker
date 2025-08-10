@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.sriram.expensetracker.MainController"
+            prefWidth="600" prefHeight="400">
+
+    <top>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <HBox spacing="10">
+                <Label text="Description:"/>
+                <TextField fx:id="descriptionField" prefWidth="200"/>
+            </HBox>
+
+            <HBox spacing="10">
+                <Label text="Amount:"/>
+                <TextField fx:id="amountField" prefWidth="100"/>
+            </HBox>
+
+            <HBox spacing="10">
+                <Label text="Category:"/>
+                <ComboBox fx:id="categoryComboBox" prefWidth="150">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Food"/>
+                            <String fx:value="Travel"/>
+                            <String fx:value="Shopping"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+            </HBox>
+
+            <HBox spacing="10">
+                <Label text="Date:"/>
+                <DatePicker fx:id="datePicker"/>
+            </HBox>
+
+            <Button text="Add Expense" onAction="#handleAddExpense"/>
+        </VBox>
+    </top>
+
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+
+    <center>
+        <TableView fx:id="expenseTable" prefHeight="250" prefWidth="580">
+            <columns>
+                <TableColumn text="Description" fx:id="descriptionColumn" prefWidth="200"/>
+                <TableColumn text="Amount" fx:id="amountColumn" prefWidth="100"/>
+                <TableColumn text="Category" fx:id="categoryColumn" prefWidth="150"/>
+                <TableColumn text="Date" fx:id="dateColumn" prefWidth="130"/>
+            </columns>
+        </TableView>
+    </center>
+
+</BorderPane>
